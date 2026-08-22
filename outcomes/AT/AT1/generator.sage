@@ -1,4 +1,4 @@
-load("../../../source/common/sagemath/library.sage")
+load("outcomes/tbil/library.sage")
 TBIL.config_matrix_typesetting()
 
 class Generator(BaseGenerator):
