@@ -14,6 +14,33 @@
             </description>
         </outcome>
         <outcome>
+            <title>Linear systems, vector equations, and augmented matrices (B)</title>
+            <path>outcomes/LE/LE1b</path>
+            <slug>LE1b</slug>
+            <description>
+                Translate back and forth between a system of linear equations,
+                a vector equation, and the corresponding augmented matrix.
+            </description>
+        </outcome>
+        <outcome>
+            <title>Linear systems, vector equations, and augmented matrices (C)</title>
+            <path>outcomes/LE/LE1c</path>
+            <slug>LE1c</slug>
+            <description>
+                Translate back and forth between a system of linear equations,
+                a vector equation, and the corresponding augmented matrix.
+            </description>
+        </outcome>
+        <outcome>
+            <title>Linear systems, vector equations, and augmented matrices (D)</title>
+            <path>outcomes/LE/LE1d</path>
+            <slug>LE1d</slug>
+            <description>
+                Translate back and forth between a system of linear equations,
+                a vector equation, and the corresponding augmented matrix.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>Reduced row echelon form</title>
             <path>outcomes/LE/LE2</path>
             <slug>LE2</slug>
@@ -265,6 +292,6 @@
             <description>
                 Answer questions comprehensive over the course.
             </description>
-        </outcome>
+        </outcome> -->
     </outcomes>
 </bank>
