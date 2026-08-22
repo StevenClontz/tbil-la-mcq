@@ -1,0 +1,55 @@
+load("../../../source/common/sagemath/library.sage")
+TBIL.config_matrix_typesetting()
+
+class Generator(BaseGenerator):
+    def data(self):
+        A=CheckIt.simple_random_matrix_of_rank(choice([3,4]),rows=4,columns=5)
+
+        # roll different statements
+        statements = [f"statement{l}" for l in "ABCDEF"]
+        shuffle(statements)
+ 
+        tasks =  [{
+            "independent": False,
+            "vecset": TBIL.VectorSet(A.columns()),
+            "matrix": A,
+            "rref": A.rref(),
+            statements[0]: True,
+            "veceqleft": TBIL.LinearCombinationFromMatrix(A),
+        }]
+
+        independent = choice([True,False])
+        if independent:
+            rank = 4
+        else:
+            rank = choice([2,3])
+        A=CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=4)
+ 
+        tasks +=  [{
+            "independent": independent,
+            "vecset": TBIL.VectorSet(A.columns()),
+            "matrix": A,
+            "rref": A.rref(),
+            statements[1]: True,
+            "veceqleft": TBIL.LinearCombinationFromMatrix(A),
+        }]
+
+        independent = not independent
+        if independent:
+            rank = 3
+        else:
+            rank = 2
+        A=CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=3)
+ 
+        tasks +=  [{
+            "independent": independent,
+            "vecset": TBIL.VectorSet(A.columns()),
+            "matrix": A,
+            "rref": A.rref(),
+            statements[2]: True,
+            "veceqleft": TBIL.LinearCombinationFromMatrix(A),
+        }]
+
+        shuffle(tasks)
+
+        return {"tasks": tasks}

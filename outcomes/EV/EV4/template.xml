@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <!-- {{#tasks}} -->
+    <knowl>
+        <intro>
+            <p>
+    Consider the set of vectors <me>{{vecset}}</me>
+            </p>
+        </intro>
+        <knowl>
+            <content>
+                <p>
+                    Write a statement involving the solutions of a vector equation
+                    that's equivalent to this claim:
+                    <q>The set of vectors is linearly independent.</q>
+                </p>
+            </content>
+            <outtro>
+                <p>Here's an example of one such statement:
+                <!-- {{#statementA}} -->
+                    <q>The vector equation <m>{{veceqleft}}=\vec 0</m> has exactly one solution.</q>
+                <!-- {{/statementA}} -->
+                <!-- {{#statementB}} -->
+                    <q>The following vector equation is consistent with a unique solution: <m>{{veceqleft}}=\vec 0</m>.</q>
+                <!-- {{/statementB}} -->
+                <!-- {{#statementC}} -->
+                    <q>Exactly one solution exists for the equation <m>{{veceqleft}}=\vec 0</m>.</q>
+                <!-- {{/statementC}} -->
+                <!-- {{#statementD}} -->
+                    <q><m>{{veceqleft}}=\vec 0</m> can only be solved by the solution vector <m>\vec 0</m>.</q>
+                <!-- {{/statementD}} -->
+                <!-- {{#statementE}} -->
+                    <q>The unique solution for <m>{{veceqleft}}=\vec 0</m> is the zero vector.</q>
+                <!-- {{/statementE}} -->
+                <!-- {{#statementF}} -->
+                    <q>There is no vector besides <m>\vec 0</m> which solves the equation <m>{{veceqleft}}=\vec 0</m>.</q>
+                <!-- {{/statementF}} -->
+                </p>
+            </outtro>
+        </knowl>
+        <knowl>
+            <content>
+                <p>
+    Explain and demonstrate how to determine whether or not this statement is true.
+                </p>
+            </content>
+            <outtro>
+                <p>
+                    <m>
+        \mathrm{RREF}\, {{matrix}} = {{rref}}
+                    </m>
+                </p>
+                <p>
+        The vector equation (...), and thus
+        the set of vectors is linearly
+                <!-- {{#independent}} -->
+                    <em>independent</em>.
+                <!-- {{/independent}} -->
+                <!-- {{^independent}} -->
+                    <em>dependent</em>.
+                <!-- {{/independent}} -->
+                </p>
+            </outtro>
+        </knowl>
+    </knowl>
+    <!-- {{/tasks}} -->
+</knowl>

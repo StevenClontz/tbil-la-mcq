@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <intro>
+        <p>
+            Of the following three matrices, only two may be multiplied.
+            <me>
+                A={{A}} \hspace{1em} B={{B}} \hspace{1em} C={{C}}
+            </me>
+        </p>
+    </intro>
+    <knowl>
+        <content>
+            <p>Explain which two can be multiplied and why.</p>
+        </content>
+        <outtro>
+            <p><m>{{productName}}</m></p>
+        </outtro>
+    </knowl>
+    <knowl>
+        <content>
+            <p>Show how to find the {{ordinal}} column of this product without technology.</p>
+        </content>
+            <outtro>
+                <p>
+<me>
+{{productName}}\vec e_{ {{ord_value}} } = {{ord_col}}
+</me>
+                </p>
+            </outtro>
+    </knowl>
+    <knowl>
+        <content>
+            <p>Find their product using technology.</p>
+        </content>
+        <outtro>
+            <p>
+                <me>{{productName}} = {{product}}</me>
+            </p>
+        </outtro>
+    </knowl>
+</knowl>
