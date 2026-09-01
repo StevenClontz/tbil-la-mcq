@@ -10,13 +10,15 @@ or vector equations.
         <p><me>\text{System 3:}\hspace{3em}{{system3}}</me></p>
         <p>
 Which of the following correctly describes the number of solutions
-of each system, including the solution for whichever system has
-exactly one solution?
+of each system, including the solution set for the systems with finitely-many
+solutions?
         </p>
     </content>
     <!-- {{#choices}} -->
     <outtro{{^correct}} distractor="true"{{/correct}}>
-        <p><me>{{item}}</me></p>
+        <p>System {{noneSystem}} has no solutions. Its solution set is <m>\emptyset</m>.</p>
+        <p>System {{oneSystem}} has one solution. Its solution set is <m>{{oneSystemSet}}</m>.</p>
+        <p>System {{infSystem}} has infinitely-many solutions.</p>
     </outtro>
     <!-- {{/choices}} -->
 </knowl>

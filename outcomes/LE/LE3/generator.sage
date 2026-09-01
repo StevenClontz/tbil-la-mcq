@@ -101,32 +101,33 @@ class Generator(BaseGenerator):
         decoy_indices = set(sample(range(5), 3))
 
         def describe(perm, vec_for_one):
-            lines = []
+            choice_dict = {}
             for i in range(3):
                 cat = perm[i]
                 if cat == "one":
-                    lines.append(
-                        r"\text{System " + str(i+1) + r" has one solution: }"
-                        + r"\left\{" + latex(vec_for_one) + r"\right\}"
-                    )
+                    choice_dict["oneSystem"] = str(i+1)
+                    choice_dict["oneSystemSet"] = r"\left\{" + latex(vec_for_one) + r"\right\}"
                 elif cat == "inf":
-                    lines.append(
-                        r"\text{System " + str(i+1) + r" has infinitely-many solutions.}"
-                    )
+                    choice_dict["infSystem"] = str(i+1)
                 else:
-                    lines.append(
-                        r"\text{System " + str(i+1) + r" has no solutions.}"
-                    )
-            return r"\begin{array}{l}" + r" \\ ".join(lines) + r"\end{array}"
+                    choice_dict["noneSystem"] = str(i+1)
+            return choice_dict
 
-        choices = [describe(true_assignment, solution)] + [
-            describe(perm, decoy_solution if i in decoy_indices else solution)
-            for i, perm in enumerate(wrong_perms)
-        ]
+        choices = [describe(true_assignment, solution)]
+        choices[0]["correct"] = True
+        for i, perm in enumerate(wrong_perms):
+            vec_for_one = decoy_solution if i in decoy_indices else solution
+            wrong_choice = describe(perm, vec_for_one)
+            wrong_choice["correct"] = False
+            choices.append(wrong_choice)
+
+        shuffle(choices)
+        for i in range(len(choices)):
+            choices[i]["letter"] = chr(ord('a')+i)
 
         return {
             "system1": systems[0]["system"],
             "system2": systems[1]["system"],
             "system3": systems[2]["system"],
-            "choices": CheckIt.choices_from_list(choices),
+            "choices": choices,
         }
