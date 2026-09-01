@@ -48,7 +48,7 @@
                 Explain why a matrix isn't in reduced row echelon form, and put a
                 matrix in reduced row echelon form.
             </description>
-        </outcome>
+        </outcome> -->
         <outcome>
             <title>Counting solutions for linear systems</title>
             <path>outcomes/LE/LE3</path>
@@ -58,7 +58,7 @@
                 a vector equation.
             </description>
         </outcome>
-        <outcome>
+        <!-- <outcome>
             <title>Linear systems with infinitely-many solutions</title>
             <path>outcomes/LE/LE4</path>
             <slug>LE4</slug>
