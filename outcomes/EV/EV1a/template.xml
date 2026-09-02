@@ -3,12 +3,12 @@
     <content>
         <p>
 Which of the following statements is equivalent to the claim that
-{{{stem_claim}}}?
+"{{{stem_claim}}}"?
         </p>
     </content>
     <!-- {{#choices}} -->
     <outtro{{^correct}} distractor="true"{{/correct}}>
-        <p>{{{item}}}</p>
+        <p>{{{item}}}.</p>
     </outtro>
     <!-- {{/choices}} -->
 </knowl>

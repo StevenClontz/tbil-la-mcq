@@ -21,8 +21,8 @@ class Generator(BaseGenerator):
             f"<m>{v_ltx}</m> is a linear combination of <m>{veclist_ltx}</m>",
             f"<m>{v_ltx}</m> is in the span of <m>{vecset_ltx}</m>",
             f"<m>{v_ltx} \\in \\operatorname{{span}} {vecset_ltx}</m>",
-            f"the equation <m>{veceq_ltx}</m> is solvable",
-            f"the solution set of the equation <m>{veceq_ltx}</m> is nonempty",
+            f"The equation <m>{veceq_ltx}</m> is solvable",
+            f"The solution set of the equation <m>{veceq_ltx}</m> is nonempty",
         ]
         shuffle(correct_claims)
         stem_claim = correct_claims[0]
@@ -33,16 +33,25 @@ class Generator(BaseGenerator):
         perturbation[randrange(rows)] = choice([-1,1])
         w = v + vector(ZZ, perturbation)
         w_ltx = latex(column_matrix(w))
+        w_veceq_ltx = latex(TBIL.VectorEquation(A.augment(column_matrix(w), subdivide=True)))
         wrongnum_claim = choice([
             f"<m>{w_ltx}</m> is a linear combination of <m>{veclist_ltx}</m>",
             f"<m>{w_ltx}</m> is in the span of <m>{vecset_ltx}</m>",
+            f"<m>{w_ltx} \\in \\operatorname{{span}} {vecset_ltx}</m>",
+            f"The equation <m>{w_veceq_ltx}</m> is solvable",
+            f"The solution set of the equation <m>{w_veceq_ltx}</m> is nonempty",
         ])
 
-        # pool of claims that confuse existence of a solution with uniqueness
+        # pool of incorrect claims
         confusion_claims = [
             f"<m>{v_ltx}</m> is the unique solution to the equation <m>{veceq_ltx}</m>",
-            f"the solution set of the equation <m>{veceq_ltx}</m> is <m>\\left\\{{{v_ltx}\\right\\}}</m>",
-            f"there is only one way to write <m>{v_ltx}</m> as a linear combination of <m>{veclist_ltx}</m>",
+            f"<m>{v_ltx}</m> is one of infinitely-many solutions to the equation <m>{veceq_ltx}</m>",
+            f"The solution set of the equation <m>{veceq_ltx}</m> is <m>\\left\\{{{v_ltx}\\right\\}}</m>",
+            f"The solution set of the equation <m>{veceq_ltx}</m> contains a unique vector",
+            f"The solution set of the equation <m>{veceq_ltx}</m> is infinite",
+            f"The solution set of the equation <m>{veceq_ltx}</m> is empty",
+            f"There is only one way to write <m>{v_ltx}</m> as a linear combination of <m>{veclist_ltx}</m>",
+            f"There are infinitely-many ways to write <m>{v_ltx}</m> as a linear combination of <m>{veclist_ltx}</m>",
         ]
 
         distractors = [wrongnum_claim] + sample(confusion_claims, 2)
