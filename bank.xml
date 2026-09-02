@@ -74,17 +74,26 @@
             <description>
                 Be prepared to engage with EV learning outcomes.
             </description>
-        </outcome>
+        </outcome> -->
         <outcome>
-            <title>Linear combinations</title>
-            <path>outcomes/EV/EV1</path>
-            <slug>EV1</slug>
+            <title>Linear combinations (A)</title>
+            <path>outcomes/EV/EV1a</path>
+            <slug>EV1a</slug>
             <description>
                 Determine if a Euclidean vector can be written as a linear combination
                 of a given set of Euclidean vectors by solving an appropriate vector equation.
             </description>
         </outcome>
         <outcome>
+            <title>Linear combinations (B)</title>
+            <path>outcomes/EV/EV1b</path>
+            <slug>EV1b</slug>
+            <description>
+                Determine if a Euclidean vector can be written as a linear combination
+                of a given set of Euclidean vectors by solving an appropriate vector equation.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>Spanning sets</title>
             <path>outcomes/EV/EV2</path>
             <slug>EV2</slug>
