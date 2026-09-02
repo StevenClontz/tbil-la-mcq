@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
-    <intro>
+    <content>
         <p>
             Consider the following
             <!-- {{#system}} -->
@@ -14,26 +14,13 @@
                 {{vec_eq}}
             </me>
         </p>
-    </intro>
-    <knowl>
-        <content>
-            <p>
-Explain and demonstrate how to find a simpler linear system
-that has the same solution set.
-            </p>
-        </content>
-        <outtro>
-            <p><me>{{simplified_system}}</me></p>
-        </outtro>
-    </knowl>
-    <knowl>
-        <content>
-            <p>
-Explain and demonstrate how to describe this solution set using set notation.
-            </p>
-        </content>
-        <outtro>
-            <p>The solution set is <m>{{solset}}</m>.</p>
-        </outtro>
-    </knowl>
+        <p>
+Which of the following is the solution set of this system?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>The solution set is <m>{{item}}</m>.</p>
+    </outtro>
+    <!-- {{/choices}} -->
 </knowl>
