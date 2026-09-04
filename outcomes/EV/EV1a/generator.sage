@@ -29,9 +29,7 @@ class Generator(BaseGenerator):
         answer_claim = correct_claims[1]
 
         # right shape, wrong vector: not equivalent no matter the numbers
-        perturbation = [0]*rows
-        perturbation[randrange(rows)] = choice([-1,1])
-        w = v + vector(ZZ, perturbation)
+        w = v + vector(ZZ, [choice([-1,1]) for _ in range(rows)])
         w_ltx = latex(column_matrix(w))
         w_veceq_ltx = latex(TBIL.VectorEquation(A.augment(column_matrix(w), subdivide=True)))
         wrongnum_claim = choice([
@@ -46,7 +44,7 @@ class Generator(BaseGenerator):
         confusion_claims = [
             f"<m>{v_ltx}</m> is the unique solution to the equation <m>{veceq_ltx}</m>",
             f"<m>{v_ltx}</m> is one of infinitely-many solutions to the equation <m>{veceq_ltx}</m>",
-            f"The solution set of the equation <m>{veceq_ltx}</m> is <m>\\left\\{{{v_ltx}\\right\\}}</m>",
+            f"<m>\\left\\{{{v_ltx}\\right\\}}</m> is the solution set of the equation <m>{veceq_ltx}</m>",
             f"The solution set of the equation <m>{veceq_ltx}</m> contains a unique vector",
             f"The solution set of the equation <m>{veceq_ltx}</m> is infinite",
             f"The solution set of the equation <m>{veceq_ltx}</m> is empty",

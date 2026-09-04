@@ -41,5 +41,7 @@ class Generator(BaseGenerator):
 
         return {
             "veclist": TBIL.VectorList(A.columns()),
+            "vecset": TBIL.VectorSet(A.columns()),
             "choices": choices,
+            choice(["linearcombo","set","span"]): True
         }

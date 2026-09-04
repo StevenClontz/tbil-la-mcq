@@ -2,11 +2,19 @@
 <knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
     <content>
         <p>
-Consider the vectors <me>{{veclist}}</me>
-        </p>
-        <p>
+<!-- {{#linearcombo}} -->
 Which of the following vectors is a linear combination of these vectors?
-        </p>
+<me>{{veclist}}</me>
+<!-- {{/linearcombo}} -->
+<!-- {{#span}} -->
+Which of the following vectors is in the span of the following vectors?
+<me>{{veclist}}</me>
+<!-- {{/span}} -->
+<!-- {{#set}} -->
+Which of the following vectors belongs to this set?
+<me>\operatorname{span}{{vecset}}</me>
+<!-- {{/set}} -->
+    </p>
     </content>
     <!-- {{#choices}} -->
     <outtro{{^correct}} distractor="true"{{/correct}}>
