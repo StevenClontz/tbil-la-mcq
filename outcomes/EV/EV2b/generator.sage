@@ -3,37 +3,41 @@ TBIL.config_matrix_typesetting()
 
 class Generator(BaseGenerator):
     def data(self):
-        def yesno_choices(spans):
-            return CheckIt.choices_from_list([
-                "Yes, this set of vectors spans <m>\\mathbb R^4</m>." if spans
-                    else "No, this set of vectors does not span <m>\\mathbb R^4</m>.",
-                "No, this set of vectors does not span <m>\\mathbb R^4</m>." if spans
-                    else "Yes, this set of vectors spans <m>\\mathbb R^4</m>.",
-            ])
+        # every combination of span/no-span across sets A, B, C,
+        # excluding "all three span" and "none of them span"
+        patterns = [
+            (True,True,False), (True,False,True), (False,True,True),
+            (True,False,False), (False,True,False), (False,False,True),
+        ]
 
-        # too few vectors to span R^4: guaranteed not to span
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=4,columns=3)
-        tasks = [{
-            "vecset": TBIL.VectorSet(A.columns()),
-            "choices": yesno_choices(False),
-        }]
+        def label(p):
+            letters = [l for l,spans in zip("ABC",p) if spans]
+            if len(letters) == 1:
+                return f"Only {letters[0]} spans <m>\\mathbb R^4</m>."
+            return f"Only {' and '.join(letters)} span <m>\\mathbb R^4</m>."
 
-        spans = choice([True,False])
-        rank = 4 if spans else choice([2,3])
-        A = CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=4)
-        tasks.append({
-            "vecset": TBIL.VectorSet(A.columns()),
-            "choices": yesno_choices(spans),
-        })
+        # sets A, B, C always have 3, 4, and 5 columns, in a random order.
+        # the 3-column set can never span R^4, so exactly one of the other
+        # two (4- and 5-column) sets is chosen to span, and the choices
+        # still offer plausible "two sets span" distractors alongside it.
+        columns = sample([3,4,5],3)
+        candidates = [i for i in range(3) if columns[i] != 3]
+        spanning_index = choice(candidates)
+        pattern = tuple(i == spanning_index for i in range(3))
 
-        spans = not spans
-        rank = 4 if spans else choice([2,3])
-        A = CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=5)
-        tasks.append({
-            "vecset": TBIL.VectorSet(A.columns()),
-            "choices": yesno_choices(spans),
-        })
+        vectorsets = []
+        for i in range(3):
+            rank = 4 if pattern[i] else choice([2,3])
+            A = CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=columns[i])
+            vectorsets.append(TBIL.VectorSet(A.columns()))
 
-        shuffle(tasks)
+        choices = CheckIt.choices_from_list(
+            [label(pattern)] + [label(p) for p in patterns if p != pattern]
+        )
 
-        return {"tasks": tasks}
+        return {
+            "set1": vectorsets[0],
+            "set2": vectorsets[1],
+            "set3": vectorsets[2],
+            "choices": choices,
+        }

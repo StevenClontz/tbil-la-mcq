@@ -1,20 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
-    <!-- {{#tasks}} -->
-    <knowl>
-        <content>
-            <p>
-                Consider the set of vectors <me>{{vecset}}</me>
-            </p>
-            <p>
-                Does this set of vectors span <m>\mathbb R^4</m>?
-            </p>
-        </content>
-        <!-- {{#choices}} -->
-        <outtro{{^correct}} distractor="true"{{/correct}}>
-            <p>{{{item}}}</p>
-        </outtro>
-        <!-- {{/choices}} -->
-    </knowl>
-    <!-- {{/tasks}} -->
+    <content>
+        <p>Consider the following three sets of vectors in <m>\mathbb R^4</m>.</p>
+        <p><me>A={{set1}}</me></p>
+        <p><me>B={{set2}}</me></p>
+        <p><me>C={{set3}}</me></p>
+        <p>Which of the following statements is true?</p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>{{{item}}}</p>
+    </outtro>
+    <!-- {{/choices}} -->
 </knowl>
