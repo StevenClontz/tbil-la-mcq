@@ -93,16 +93,25 @@
                 of a given set of Euclidean vectors by solving an appropriate vector equation.
             </description>
         </outcome>
-        <!-- <outcome>
-            <title>Spanning sets</title>
-            <path>outcomes/EV/EV2</path>
-            <slug>EV2</slug>
+        <outcome>
+            <title>Spanning sets (A)</title>
+            <path>outcomes/EV/EV2a</path>
+            <slug>EV2a</slug>
             <description>
                 Determine if a set of Euclidean vectors spans R^n by solving
                 appropriate vector equations.
             </description>
         </outcome>
         <outcome>
+            <title>Spanning sets (B)</title>
+            <path>outcomes/EV/EV2b</path>
+            <slug>EV2b</slug>
+            <description>
+                Determine if a set of Euclidean vectors spans R^n by solving
+                appropriate vector equations.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>Subspaces</title>
             <path>outcomes/EV/EV3</path>
             <slug>EV3</slug>
