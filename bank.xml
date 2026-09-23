@@ -137,15 +137,15 @@
                 independent by solving an appropriate vector equation.
             </description>
         </outcome>
-        <!-- <outcome>
-            <title>Basis identification</title>
-            <path>outcomes/EV/EV5</path>
-            <slug>EV5</slug>
+        <outcome>
+            <title>Basis identification (B)</title>
+            <path>outcomes/EV/EV5b</path>
+            <slug>EV5b</slug>
             <description>
                 Explain why a set of Euclidean vectors is or is not a basis of R^n.
             </description>
         </outcome>
-        <outcome>
+        <!-- <outcome>
             <title>Basis of a subspace</title>
             <path>outcomes/EV/EV6</path>
             <slug>EV6</slug>

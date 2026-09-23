@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>Consider the following four sets of vectors in <m>\mathbb R^4</m>.</p>
+        <p><me>A={{set1}}</me></p>
+        <p><me>B={{set2}}</me></p>
+        <p><me>C={{set3}}</me></p>
+        <p><me>D={{set4}}</me></p>
+        <p>Which of these sets is a basis for <m>\mathbb R^4</m>?</p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>{{{item}}}</p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>
