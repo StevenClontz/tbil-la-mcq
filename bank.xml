@@ -138,6 +138,14 @@
             </description>
         </outcome>
         <outcome>
+            <title>Basis identification (A)</title>
+            <path>outcomes/EV/EV5a</path>
+            <slug>EV5a</slug>
+            <description>
+                Explain why a set of Euclidean vectors is or is not a basis of R^n.
+            </description>
+        </outcome>
+        <outcome>
             <title>Basis identification (B)</title>
             <path>outcomes/EV/EV5b</path>
             <slug>EV5b</slug>
