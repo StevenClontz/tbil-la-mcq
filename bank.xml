@@ -119,16 +119,25 @@
                  Determine if a subset of R^n is a subspace or not.
             </description>
         </outcome>
-        <!-- <outcome>
-            <title>Linear independence</title>
-            <path>outcomes/EV/EV4</path>
-            <slug>EV4</slug>
+        <outcome>
+            <title>Linear independence (A)</title>
+            <path>outcomes/EV/EV4a</path>
+            <slug>EV4a</slug>
             <description>
                 Determine if a set of Euclidean vectors is linearly dependent or
                 independent by solving an appropriate vector equation.
             </description>
         </outcome>
         <outcome>
+            <title>Linear independence (B)</title>
+            <path>outcomes/EV/EV4b</path>
+            <slug>EV4b</slug>
+            <description>
+                Determine if a set of Euclidean vectors is linearly dependent or
+                independent by solving an appropriate vector equation.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>Basis identification</title>
             <path>outcomes/EV/EV5</path>
             <slug>EV5</slug>
