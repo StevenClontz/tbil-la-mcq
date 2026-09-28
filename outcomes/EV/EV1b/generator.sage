@@ -7,7 +7,7 @@ class Generator(BaseGenerator):
         rows = randrange(3,5)
         columns = 7-rows
         number_of_pivots = 2
-        A = CheckIt.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
 
         # genuine linear combination of the pivot columns
         coeffs = [

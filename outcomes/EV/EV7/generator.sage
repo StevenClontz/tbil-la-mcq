@@ -10,7 +10,7 @@ class Generator(BaseGenerator):
         #start with nice RREF
         max_number_of_pivots = min(rows,columns-1)
         number_of_pivots = randrange(2,max_number_of_pivots+1)
-        A=CheckIt.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
+        A=TBIL.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
 
         basis=A.right_kernel(basis='pivot').basis()
         A=A.augment(zero_vector(QQ, len(A.rows())),subdivide=true)

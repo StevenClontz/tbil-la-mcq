@@ -6,7 +6,7 @@ class Generator(BaseGenerator):
         # create a 4x3 or 3x4 matrix
         rows = randrange(3,5)
         columns = 7-rows
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(2,rows=rows,columns=columns)
 
         v = vector(ZZ, [randrange(1,7)*choice([-1,1]) for _ in range(rows)])
         veceq = TBIL.VectorEquation(A.augment(column_matrix(v), subdivide=True))

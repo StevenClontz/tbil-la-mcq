@@ -4,20 +4,19 @@ TBIL.config_matrix_typesetting()
 class Generator(BaseGenerator):
     def data(self):
         # span of 4 or 5 vectors in R^4 with dimension 2 or 3, so there is
-        # always at least one dependent vector. regenerate until the vectors
-        # are distinct, and neither the pivot columns of the RREF nor the
-        # non-pivot columns happen to also be a basis of W.
+        # always at least one dependent vector. regenerate until neither the
+        # pivot columns of the RREF nor the non-pivot columns happen to also
+        # be a basis of W.
         n = choice([4,5])
         dim = choice([2,3])
         while True:
-            A = CheckIt.simple_random_matrix_of_rank(dim,columns=n,rows=4)
+            A = TBIL.simple_random_matrix_of_rank(dim,columns=n,rows=4)
             pivots = A.pivots()
             rref_basis = [A.rref().column(i) for i in pivots]
             nonpivots = [A.column(i) for i in range(n) if i not in pivots]
-            distinct = len(set(tuple(v) for v in A.columns())) == n
             rref_is_basis = all(v in A.column_space() for v in rref_basis)
             nonpivots_is_basis = len(nonpivots) == dim and matrix(nonpivots).rank() == dim
-            if distinct and not rref_is_basis and not nonpivots_is_basis:
+            if not rref_is_basis and not nonpivots_is_basis:
                 break
 
         basis = [A.column(i) for i in pivots]

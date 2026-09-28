@@ -7,7 +7,7 @@ class Generator(BaseGenerator):
         rows = randrange(3,5)
         columns = randrange(rows, rows+2)
         number_of_pivots = randrange(2, min(rows,columns)+1)
-        A = CheckIt.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
 
         vecset_ltx = latex(TBIL.VectorSet(A.columns()))
         veceqleft_ltx = latex(TBIL.LinearCombinationFromMatrix(A))

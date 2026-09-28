@@ -9,7 +9,7 @@ class Generator(BaseGenerator):
         ranks = [2, 3, 4]
 
         def random_consistent_matrix(rank):
-            A = CheckIt.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
+            A = TBIL.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
             image_basis = [A.column(p) for p in A.pivots()]
             coeffs = [
                 randrange(1,4)*choice([-1,1])

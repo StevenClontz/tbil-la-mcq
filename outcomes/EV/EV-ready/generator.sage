@@ -130,7 +130,7 @@ class Generator(BaseGenerator):
         })
 
 
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
         solution = column_matrix(
             vector(QQ, [randrange(1,4)*choice([-1,1]) for _ in range(3)])
         )
@@ -138,7 +138,7 @@ class Generator(BaseGenerator):
         A = A.augment(constants, subdivide=True)
 
         def get_matrix():
-            C = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=3)
+            C = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=3)
             image_basis = [C.column(p) for p in A.pivots()]
             coeffs = [
                 randrange(1,4)*choice([-1,1])
@@ -161,10 +161,10 @@ class Generator(BaseGenerator):
         })
 
 
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=4)
-        B = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=4)
-        C = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=4)
-        D = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=4)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=4)
+        B = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=4)
+        C = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=4)
+        D = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=4)
 
         questions.append({
             "LE2": True,
@@ -174,7 +174,7 @@ class Generator(BaseGenerator):
 
         # single solution
         # create a 3x3 invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
         # add linear combination of rows for fourth row
         combo = sum([randrange(1,4)*vector(r) for r in A.rows()])
         A = A.stack(matrix(QQ,1,combo))
@@ -202,7 +202,7 @@ class Generator(BaseGenerator):
 
                 # no solutions
         # create a 4x4 non-invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=3)
         # add linear combination of rows for fourth row
         combo = sum([randrange(1,4)*vector(r) for r in A.rows()])
         A = A.stack(matrix(QQ,1,combo))
@@ -244,7 +244,7 @@ class Generator(BaseGenerator):
         rows = 3
         columns = 4
         rank = 2
-        A = CheckIt.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
         image_basis = [A.column(p) for p in A.pivots()]
         coeffs = [
             randrange(1,4)*choice([-1,1])
@@ -259,7 +259,7 @@ class Generator(BaseGenerator):
         solset1 = CheckIt.latex_solution_set_from_matrix(A)
         
         rank = 3
-        A = CheckIt.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
         image_basis = [A.column(p) for p in A.pivots()]
         coeffs = [
             randrange(1,4)*choice([-1,1])
@@ -273,7 +273,7 @@ class Generator(BaseGenerator):
         solset2 = CheckIt.latex_solution_set_from_matrix(A)
         
         rank = 3
-        A = CheckIt.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
         image_basis = [A.column(p) for p in A.pivots()]
         coeffs = [
             randrange(1,4)*choice([-1,1])

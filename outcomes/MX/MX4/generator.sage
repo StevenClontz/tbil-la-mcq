@@ -38,7 +38,7 @@ class Generator(BaseGenerator):
             tasks_reordered[1]["mat"] * \
             tasks_reordered[0]["mat"]
 
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=3)
 
 
         return {

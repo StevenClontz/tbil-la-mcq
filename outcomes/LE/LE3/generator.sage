@@ -5,7 +5,7 @@ class Generator(BaseGenerator):
     def data(self):
         # one solution
         # create a 3x3 invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
         # add linear combination of rows for fourth row
         combo = sum([randrange(1,4)*vector(r) for r in A.rows()])
         A = A.stack(matrix(QQ,1,combo))
@@ -21,7 +21,7 @@ class Generator(BaseGenerator):
 
         # infinitely-many solutions
         # create a 3x3 non-invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=3)
         # add linear combination of rows for fourth row
         combo = sum([randrange(1,4)*vector(r) for r in A.rows()])
         A = A.stack(matrix(QQ,1,combo))
@@ -42,7 +42,7 @@ class Generator(BaseGenerator):
 
         # no solutions
         # create a 4x4 non-invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=3)
         # add linear combination of rows for fourth row
         combo = sum([randrange(1,4)*vector(r) for r in A.rows()])
         A = A.stack(matrix(QQ,1,combo))

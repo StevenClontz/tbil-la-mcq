@@ -79,7 +79,7 @@ class Generator(BaseGenerator):
         for _ in range(2):
             # single solution (two examples)
             # create a 2x2 invertible matrix
-            A = CheckIt.simple_random_matrix_of_rank(2,rows=2,columns=2)
+            A = TBIL.simple_random_matrix_of_rank(2,rows=2,columns=2)
             solution = (
                 randrange(2,5)*choice([-1,1]),
                 randrange(2,5)*choice([-1,1]),

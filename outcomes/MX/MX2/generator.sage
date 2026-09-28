@@ -6,7 +6,7 @@ class Generator(BaseGenerator):
         labels = list("ABCDLMNPQ")
         shuffle(labels)
         # invertible matrix
-        A=CheckIt.simple_random_matrix_of_rank(4,rows=4,columns=4)
+        A=TBIL.simple_random_matrix_of_rank(4,rows=4,columns=4)
         solution = column_matrix(
             vector(QQ, [randrange(1,5)*choice([-1,1]) for _ in range(4)])
         )
@@ -34,7 +34,7 @@ class Generator(BaseGenerator):
             "ord_col": column_matrix((A^(-1)).column(ordinal)),
         }]
         # non-invertible matrix
-        A=CheckIt.simple_random_matrix_of_rank(choice([2,3]),rows=4,columns=4)
+        A=TBIL.simple_random_matrix_of_rank(choice([2,3]),rows=4,columns=4)
         constants = A*solution
         m = A.augment(constants, subdivide=True)
         matrices += [{

@@ -8,11 +8,11 @@ class Generator(BaseGenerator):
         w = column_matrix([x,y])
 
         # make a linear map
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
         Pmap = A*v
 
         # make a nonlinear map
-        B = CheckIt.simple_random_matrix_of_rank(2,rows=2,columns=3)
+        B = TBIL.simple_random_matrix_of_rank(2,rows=2,columns=3)
         insert_at = choice(range(3))
         preQmap = B*v
         terms = [x,y,z]
@@ -28,7 +28,7 @@ class Generator(BaseGenerator):
             Pmap, Qmap = Qmap, Pmap
 
         # make a nonlinear map
-        C = CheckIt.simple_random_matrix_of_rank(1,rows=1,columns=2)
+        C = TBIL.simple_random_matrix_of_rank(1,rows=1,columns=2)
         insert_at = choice(range(2))
         preSmap = C*w
         terms = [x,y]

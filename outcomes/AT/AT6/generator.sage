@@ -10,7 +10,7 @@ class Generator(BaseGenerator):
 
         #start with nice RREF
         number_of_pivots = choice([2,3])
-        A = CheckIt.simple_random_matrix_of_rank(
+        A = TBIL.simple_random_matrix_of_rank(
             number_of_pivots,
             rows=rows,
             columns=columns

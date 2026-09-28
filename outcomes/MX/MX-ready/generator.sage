@@ -166,7 +166,7 @@ class Generator(BaseGenerator):
         # dom_cdom
         # create a cdom x dom standard matrix
         dom, cdom = sample(range(2,5),2)
-        A = CheckIt.simple_random_matrix_of_rank(
+        A = TBIL.simple_random_matrix_of_rank(
             min(dom, cdom),
             rows=cdom,
             columns=dom
@@ -184,7 +184,7 @@ class Generator(BaseGenerator):
         })
 
         # inj_surj_rref
-        A = CheckIt.simple_random_matrix_of_rank(
+        A = TBIL.simple_random_matrix_of_rank(
             2,
             rows=3,
             columns=3
@@ -199,7 +199,7 @@ class Generator(BaseGenerator):
         })
 
         # inj_surj_rref
-        A = CheckIt.simple_random_matrix_of_rank(
+        A = TBIL.simple_random_matrix_of_rank(
             3,
             rows=3,
             columns=3

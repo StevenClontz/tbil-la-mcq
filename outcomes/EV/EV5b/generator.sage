@@ -13,7 +13,7 @@ class Generator(BaseGenerator):
         vectorsets = []
         for i in range(4):
             rank = 4 if i == basis_index else choice(nonbasis_ranks[columns[i]])
-            A = CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=columns[i])
+            A = TBIL.simple_random_matrix_of_rank(rank,rows=4,columns=columns[i])
             vectorsets.append(TBIL.VectorSet(A.columns()))
 
         letters = list("ABCD")

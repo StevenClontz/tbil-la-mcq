@@ -9,7 +9,7 @@ class Generator(BaseGenerator):
 
         # single solution
         # create a 3x3 invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
         # add linear combination of rows for fourth row
         combo = sum([randrange(1,4)*vector(r) for r in A.rows()])
         A = A.stack(matrix(QQ,1,combo))
@@ -40,11 +40,11 @@ class Generator(BaseGenerator):
 
         #start with nice RREF
         number_of_pivots = choice([2,3])
-        A=CheckIt.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
+        A=TBIL.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
         basisA=A.right_kernel(basis='pivot').basis()
-        B=CheckIt.simple_random_matrix_of_rank(5-number_of_pivots,rows=rows,columns=columns)
+        B=TBIL.simple_random_matrix_of_rank(5-number_of_pivots,rows=rows,columns=columns)
         basisB=B.right_kernel(basis='pivot').basis()
-        C=CheckIt.simple_random_matrix_of_rank(1,rows=rows,columns=columns)
+        C=TBIL.simple_random_matrix_of_rank(1,rows=rows,columns=columns)
         basisC=C.right_kernel(basis='pivot').basis()
 
         questions.append({
@@ -59,7 +59,7 @@ class Generator(BaseGenerator):
 
 
         #Obviously fails to span
-        A=CheckIt.simple_random_matrix_of_rank(2,columns=2,rows=3)
+        A=TBIL.simple_random_matrix_of_rank(2,columns=2,rows=3)
 
         questions.append({
             "EVstuff": True,
@@ -68,7 +68,7 @@ class Generator(BaseGenerator):
         })
 
         #Obviously dependent
-        A=CheckIt.simple_random_matrix_of_rank(3,columns=4,rows=3)
+        A=TBIL.simple_random_matrix_of_rank(3,columns=4,rows=3)
 
         questions.append({
             "EVstuff": True,
@@ -77,7 +77,7 @@ class Generator(BaseGenerator):
         })
 
         #Basis
-        A=CheckIt.simple_random_matrix_of_rank(3,columns=3,rows=3)
+        A=TBIL.simple_random_matrix_of_rank(3,columns=3,rows=3)
 
         questions.append({
             "EVstuff": True,
@@ -86,7 +86,7 @@ class Generator(BaseGenerator):
         })
 
         #Neither
-        A=CheckIt.simple_random_matrix_of_rank(2,columns=3,rows=3)
+        A=TBIL.simple_random_matrix_of_rank(2,columns=3,rows=3)
 
         questions.append({
             "EVstuff": True,

@@ -11,7 +11,7 @@ class Generator(BaseGenerator):
         else:
             rank = choice([2,3])
         nullity = columns-rank
-        A = CheckIt.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
+        A = TBIL.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
 
         # construct variables
         xs=[var("x_"+str(i+1)) for i in range(columns)]

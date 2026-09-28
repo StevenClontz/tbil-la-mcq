@@ -18,7 +18,7 @@ class Generator(BaseGenerator):
         ], 4)
         for i in range(4):
             scenarios[i]["label"] = "ABCD"[i]
-            scenarios[i]["matrix"] = CheckIt.simple_random_matrix_of_rank(
+            scenarios[i]["matrix"] = TBIL.simple_random_matrix_of_rank(
                 dims[i][2], rows=dims[i][0], columns=dims[i][1]
             ).rref()
             if "add" in scenarios[i].keys():
@@ -43,7 +43,7 @@ class Generator(BaseGenerator):
             else:
                 scenarios[i]["rowop"] = None
 
-        A = CheckIt.simple_random_matrix_of_rank(2,rows=4,columns=4).rref()
+        A = TBIL.simple_random_matrix_of_rank(2,rows=4,columns=4).rref()
         # add rows to other rows
         A = elementary_matrix(4, row1=2, row2=0, scale=randrange(1,4)*choice([-1,1]))*A
         A = elementary_matrix(4, row1=3, row2=0, scale=randrange(1,4)*choice([-1,1]))*A

@@ -28,7 +28,7 @@ class Generator(BaseGenerator):
         vectorsets = []
         for i in range(3):
             rank = 4 if pattern[i] else choice([2,3])
-            A = CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=columns[i])
+            A = TBIL.simple_random_matrix_of_rank(rank,rows=4,columns=columns[i])
             vectorsets.append(TBIL.VectorSet(A.columns()))
 
         choices = CheckIt.choices_from_list(

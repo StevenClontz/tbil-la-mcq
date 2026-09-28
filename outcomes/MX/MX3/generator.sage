@@ -4,7 +4,7 @@ TBIL.config_matrix_typesetting()
 class Generator(BaseGenerator):
     def data(self):
         # create a 3x3 invertible matrix
-        A = CheckIt.simple_random_matrix_of_rank(3,rows=3,columns=3)
+        A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
         new_vector = column_matrix(
             vector(QQ, [randrange(1,5)*choice([-1,1]) for _ in range(3)])
         )

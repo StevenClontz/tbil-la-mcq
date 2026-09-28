@@ -10,7 +10,7 @@ class Generator(BaseGenerator):
         #start with nice RREF
         max_number_of_pivots = min(rows,columns-1)
         number_of_pivots = randrange(2,max_number_of_pivots+1)
-        A=CheckIt.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
+        A=TBIL.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
 
 
         det = randrange(2,8)*choice([-1,1])
@@ -36,7 +36,7 @@ class Generator(BaseGenerator):
             newdet = det
 
         l = choice([-1,1])*randrange(1,5)
-        E = CheckIt.simple_random_matrix_of_rank(4-randrange(2,4),rows=4,columns=4)
+        E = TBIL.simple_random_matrix_of_rank(4-randrange(2,4),rows=4,columns=4)
         EPlusLambda = E+l*identity_matrix(4)
 
         

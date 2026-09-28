@@ -8,7 +8,7 @@ class Generator(BaseGenerator):
             rank = 4
         else:
             rank = choice([2,3])
-        A=CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=5)
+        A=TBIL.simple_random_matrix_of_rank(rank,rows=4,columns=5)
  
         tasks =  [{
             "injective": False,
@@ -23,7 +23,7 @@ class Generator(BaseGenerator):
             rank = 3
         else:
             rank = 2
-        A=CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=3)
+        A=TBIL.simple_random_matrix_of_rank(rank,rows=4,columns=3)
  
         tasks +=  [{
             "injective": injective,
@@ -34,7 +34,7 @@ class Generator(BaseGenerator):
         }]
 
         rank = choice([2,3])
-        A=CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=4)
+        A=TBIL.simple_random_matrix_of_rank(rank,rows=4,columns=4)
  
         tasks +=  [{
             "injective": False,
@@ -45,7 +45,7 @@ class Generator(BaseGenerator):
         }]
 
         rank = 4
-        A=CheckIt.simple_random_matrix_of_rank(rank,rows=4,columns=4)
+        A=TBIL.simple_random_matrix_of_rank(rank,rows=4,columns=4)
  
         tasks +=  [{
             "injective": True,
