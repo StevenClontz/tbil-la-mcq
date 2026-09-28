@@ -153,7 +153,7 @@
                 Explain why a set of Euclidean vectors is or is not a basis of R^n.
             </description>
         </outcome>
-        <!-- <outcome>
+        <outcome>
             <title>Basis of a subspace</title>
             <path>outcomes/EV/EV6</path>
             <slug>EV6</slug>
@@ -162,7 +162,7 @@
                 vectors, and determine the dimension of the subspace.
             </description>
         </outcome>
-        <outcome>
+        <!-- <outcome>
             <title>Homogeneous systems</title>
             <path>outcomes/EV/EV7</path>
             <slug>EV7</slug>
