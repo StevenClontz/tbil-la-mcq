@@ -33,19 +33,21 @@ class Generator(BaseGenerator):
         while same_size_basis == correct_basis:
             same_size_basis = basis_latex(random_homogeneous_matrix(correct_rank))
 
-        # two distractors sharing a different, but still positive, number of
-        # basis vectors
-        wrong_rank = choice([r for r in ranks if r != correct_rank])
-        wrong_size_basis_1 = basis_latex(random_homogeneous_matrix(wrong_rank))
-        wrong_size_basis_2 = wrong_size_basis_1
-        while wrong_size_basis_2 == wrong_size_basis_1:
-            wrong_size_basis_2 = basis_latex(random_homogeneous_matrix(wrong_rank))
+        # two distractors using the columns of the coefficient matrix instead
+        # of the solution space (these are vectors in R^4, not R^5)
+        A = m.subdivision(0,0)
+        pivot_columns = latex(TBIL.VectorSet(
+            [A.column(i) for i in A.pivots()]
+        ))
+        nonpivot_columns = latex(TBIL.VectorSet(
+            [A.column(i) for i in range(columns) if i not in A.pivots()]
+        ))
 
         choices = CheckIt.choices_from_list([
             correct_basis,
             same_size_basis,
-            wrong_size_basis_1,
-            wrong_size_basis_2,
+            pivot_columns,
+            nonpivot_columns,
         ])
 
         return {
