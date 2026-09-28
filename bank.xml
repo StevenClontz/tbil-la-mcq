@@ -162,7 +162,7 @@
                 vectors, and determine the dimension of the subspace.
             </description>
         </outcome>
-        <!-- <outcome>
+        <outcome>
             <title>Homogeneous systems</title>
             <path>outcomes/EV/EV7</path>
             <slug>EV7</slug>
@@ -170,7 +170,7 @@
                 Find a basis for the solution set of a homogeneous system of equations.
             </description>
         </outcome>
-        <outcome>
+        <!-- <outcome>
             <title>READINESS: Algebraic Properties of Linear Maps</title>
             <path>outcomes/AT/AT-ready</path>
             <slug>AT-ready</slug>

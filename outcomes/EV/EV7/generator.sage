@@ -3,22 +3,52 @@ TBIL.config_matrix_typesetting()
 
 class Generator(BaseGenerator):
     def data(self):
-        # create a 3x5,4x4,5x3 matrix
-        rows = randrange(3,6)
-        columns = 8-rows
+        # create a homogeneous 4x5 system with 3, 2, or 1 free variables
+        rows = 4
+        columns = 5
+        ranks = [2, 3, 4]
 
-        #start with nice RREF
-        max_number_of_pivots = min(rows,columns-1)
-        number_of_pivots = randrange(2,max_number_of_pivots+1)
-        A=TBIL.simple_random_matrix_of_rank(number_of_pivots,rows=rows,columns=columns)
+        def random_homogeneous_matrix(rank):
+            A = TBIL.simple_random_matrix_of_rank(rank,rows=rows,columns=columns)
+            return A.augment(zero_vector(QQ, rows), subdivide=True)
 
-        basis=A.right_kernel(basis='pivot').basis()
-        A=A.augment(zero_vector(QQ, len(A.rows())),subdivide=true)
+        def basis_latex(m):
+            basis = m.subdivision(0,0).right_kernel(basis='pivot').basis()
+            return latex(TBIL.VectorSet(basis))
+
+        # correct system: solution space has dimension (columns - correct_rank)
+        correct_rank = choice(ranks)
+        m = random_homogeneous_matrix(correct_rank)
+        correct_basis = basis_latex(m)
+
+        if choice([True,False]):
+            system_label = "system"
+            system = CheckIt.latex_system_from_matrix(m)
+        else:
+            system_label = "vec_eq"
+            system = TBIL.VectorEquation(m)
+
+        # distractor with the same number of basis vectors as the correct answer
+        same_size_basis = correct_basis
+        while same_size_basis == correct_basis:
+            same_size_basis = basis_latex(random_homogeneous_matrix(correct_rank))
+
+        # two distractors sharing a different, but still positive, number of
+        # basis vectors
+        wrong_rank = choice([r for r in ranks if r != correct_rank])
+        wrong_size_basis_1 = basis_latex(random_homogeneous_matrix(wrong_rank))
+        wrong_size_basis_2 = wrong_size_basis_1
+        while wrong_size_basis_2 == wrong_size_basis_1:
+            wrong_size_basis_2 = basis_latex(random_homogeneous_matrix(wrong_rank))
+
+        choices = CheckIt.choices_from_list([
+            correct_basis,
+            same_size_basis,
+            wrong_size_basis_1,
+            wrong_size_basis_2,
+        ])
 
         return {
-            "system": CheckIt.latex_system_from_matrix(A),
-            "basis": TBIL.VectorSet(basis),
-            'solutions': CheckIt.latex_solution_set_from_matrix(A),
-            "matrix": A,
-            "rref": A.rref(),
+            system_label: system,
+            "choices": choices,
         }
