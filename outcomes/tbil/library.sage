@@ -611,6 +611,40 @@ class TBIL:
             super().__init__(TBIL.LinearCombination(vars,[column_matrix(c) for c in self.matrix.subdivision(0,0).columns()]), column_matrix(self.matrix.column(-1)))
 
     @staticmethod
+    def simple_random_matrix_of_rank(rank,rows=1,columns=1,augmented=False):
+        # same as CheckIt.simple_random_matrix_of_rank, except that the first
+        # two columns are always pivots when rank >= 2, and no column is repeated
+        # get extra rows and columns, at least zero
+        extra_rows = max(0,rows-rank)
+        extra_columns = max(0,columns-rank)
+        # create matrix with terms between -5 and 5 inclusive, rank in every column, and integer entries RREF
+        A = random_matrix(QQ,rank+extra_rows,rank,algorithm='echelonizable',rank=rank,upper_bound=6)
+        # randomly choose pivot indices where dependent columns are injected afterward;
+        # when rank >= 2, only inject after the second pivot or later
+        first_insert = 1 if rank >= 2 else 0
+        inserts = [randrange(first_insert,rank) for _ in range(extra_columns)]
+        # pedagogically we want final column to be dependent at least half the time
+        if extra_columns>0 and choice([True,False]):
+            inserts[0]=rank-1
+        # we'll insert columns backwards to avoid messing up where to inject columns
+        inserts.sort(reverse=True)
+        # we won't repeat any column (pivot or dependent)
+        for pivot in inserts:
+            while True:
+                # get random numbers for pivot rows
+                rref_pivot_entries = [randrange(-3,4) for _ in range(pivot+1)]
+                # ensure at least one is nonzero
+                rref_pivot_entries[randrange(pivot+1)] = randrange(1,4)*choice([-1,1])
+                # create vector
+                dependent_vector = sum([rref_pivot_entries[_]*A.column(_) for _ in range(pivot+1)])
+                if dependent_vector not in A.columns():
+                    A =matrix(A.columns()[:pivot+1]+[dependent_vector]+A.columns()[pivot+1:]).transpose()
+                    break
+        if augmented:
+            A.subdivide([],[columns-1])
+        return A
+
+    @staticmethod
     def choices_from_list(lst):
         """
         Given a list, return a list of choices in a canonical way,
