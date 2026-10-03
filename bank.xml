@@ -177,7 +177,7 @@
             <description>
                 Be prepared to engage with AT learning outcomes.
             </description>
-        </outcome>
+        </outcome> -->
         <outcome>
             <title>Linear maps</title>
             <path>outcomes/AT/AT1</path>
@@ -186,7 +186,7 @@
                 Determine if a map between Euclidean vector spaces is linear or not.
             </description>
         </outcome>
-        <outcome>
+        <!-- <outcome>
             <title>Standard matrices</title>
             <path>outcomes/AT/AT2</path>
             <slug>AT2</slug>
