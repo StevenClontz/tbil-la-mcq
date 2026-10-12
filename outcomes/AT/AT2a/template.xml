@@ -2,14 +2,11 @@
 <knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
     <content>
         <p>
-Let <m>T:\mathbb R^{{n}}\to\mathbb R^{{m}}</m> be the linear transformation
-satisfying the following, where <m>{{basis}}</m> is a basis of <m>\mathbb R^{{n}}</m>.
+Let <m>T:\mathbb R^{{n}}\to\mathbb R^{{m}}</m> be the linear transformation given by
+<me>T\left({{varvector}}\right)={{varmap}}.</me>
         </p>
-        <!-- {{#images}} -->
-        <p><me>T\left({{vec}}\right)={{img}}</me></p>
-        <!-- {{/images}} -->
         <p>
-Which of the following is the standard matrix for <m>T</m>?
+Which of the following is the {{ordinal}} column of the standard matrix for <m>T</m>?
         </p>
     </content>
     <!-- {{#choices}} -->

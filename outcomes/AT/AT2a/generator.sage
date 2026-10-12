@@ -3,39 +3,57 @@ TBIL.config_matrix_typesetting()
 
 class Generator(BaseGenerator):
     def data(self):
-        # T:R^2->R^4 or T:R^3->R^3, given by its values on a non-standard basis
-        n, m = 2,4 # choice([(2,4),(3,3)])
+        # T:R^2->R^4, T:R^3->R^3, or T:R^4->R^2, given by a formula
+        n, m = choice([(2,4),(3,3),(4,2)])
 
-        def standard_like(v):
-            return sum([abs(x) for x in v]) == 1
-
+        # standard matrix with nonzero entries except one, and distinct columns
         while True:
-            # basis matrix with determinant +-1, so every choice has integer entries
-            B = random_matrix(ZZ, n, algorithm='unimodular', upper_bound=4)
-            if any(standard_like(v) for v in B.columns()) or \
-                    max(abs(x) for x in B.list()) > 4:
-                continue
-            # correct standard matrix, and images of the basis vectors
-            A = TBIL.simple_random_matrix_of_rank(n, rows=m, columns=n)
-            C = A*B
-            # distractors: the images themselves, multiplying by B instead of
-            # its inverse, and transposing the inverse
-            options = [A, C, C*B, C*B.inverse().transpose()]
-            # keep entries small so no choice stands out, and choices distinct
-            if max(abs(x) for M in options for x in M.list()) > 12:
-                continue
-            if len(set(tuple(M.list()) for M in options)) == len(options):
+            entries = [randrange(1,7)*choice([-1,1]) for _ in range(m*n)]
+            entries[randrange(m*n)] = 0
+            A = matrix(QQ,m,entries)
+            if len(set(tuple(c) for c in A.columns())) == n:
                 break
 
-        images = [
-            {"vec": column_matrix(B.column(i)), "img": column_matrix(C.column(i))}
-            for i in range(n)
-        ]
+        # construct variables
+        xs=choice([
+            column_matrix(vector([var("x_"+str(i+1)) for i in range(0,n)])),
+            column_matrix(vector([var("x"),var("y"),var("z"),var("zw",latex_name="w")][0:n])),
+        ])
+
+        # ask for a random column, i.e. T of a random standard basis vector
+        j = randrange(n)
+        correct = A.column(j)
+
+        # conceptual errors: the wrong variable's coefficients, plugging in 1
+        # for every variable, and reading the j-th component (when sizes match)
+        conceptual = [A.column(k) for k in range(n) if k != j]
+        conceptual.append(A*vector([1]*n))
+        if m == n:
+            conceptual.append(A.row(j))
+        shuffle(conceptual)
+        # sign slips in the correct column, used only to fill remaining choices
+        slips = []
+        for i in range(m):
+            if correct[i] != 0:
+                v = copy(correct)
+                v[i] = -v[i]
+                slips.append(v)
+        shuffle(slips)
+        distractors = []
+        for v in conceptual + slips:
+            if v != correct and v not in distractors:
+                distractors.append(v)
+        distractors = distractors[:3]
+
+        choices = CheckIt.choices_from_list(
+            [column_matrix(correct)] + [column_matrix(v) for v in distractors]
+        )
 
         return {
             "n": n,
             "m": m,
-            "basis": TBIL.VectorSet(B.columns()),
-            "images": images,
-            "choices": CheckIt.choices_from_list(options),
+            "varvector": xs,
+            "varmap": A*xs,
+            "ordinal": ["first","second","third","fourth"][j],
+            "choices": choices,
         }
