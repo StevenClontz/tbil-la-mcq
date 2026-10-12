@@ -186,16 +186,25 @@
                 Determine if a map between Euclidean vector spaces is linear or not.
             </description>
         </outcome>
-        <!-- <outcome>
-            <title>Standard matrices</title>
-            <path>outcomes/AT/AT2</path>
-            <slug>AT2</slug>
+        <outcome>
+            <title>Standard matrices (A)</title>
+            <path>outcomes/AT/AT2a</path>
+            <slug>AT2a</slug>
             <description>
                 Translate back and forth between a linear transformation of Euclidean
                 spaces and its standard matrix, and perform related computations.
             </description>
         </outcome>
         <outcome>
+            <title>Standard matrices (B)</title>
+            <path>outcomes/AT/AT2b</path>
+            <slug>AT2b</slug>
+            <description>
+                Translate back and forth between a linear transformation of Euclidean
+                spaces and its standard matrix, and perform related computations.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>Image and kernel</title>
             <path>outcomes/AT/AT3</path>
             <slug>AT3</slug>
