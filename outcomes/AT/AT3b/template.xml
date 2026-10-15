@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Let <m>T:\mathbb R^{{n}}\to\mathbb R^{{m}}</m> be the linear transformation given by
+<me>T\left({{varvector}}\right)={{varmap}}.</me>
+        </p>
+        <p>
+Which of the following is a basis for the <em>image</em> of <m>T</m>?
+        </p>
+    </content>
+    <!-- {{#image_choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p><m>{{item}}</m></p>
+    </outtro>
+    <!-- {{/image_choices}} -->
+</knowl>
