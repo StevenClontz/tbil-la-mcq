@@ -13,7 +13,7 @@ class Generator(BaseGenerator):
 
         while True:
             A = TBIL.simple_random_matrix_of_rank(rank,rows=m,columns=n)
-            R = A.rref()
+            RREF = A.rref()
             pivots = A.pivots()
             free = [j for j in range(n) if j not in pivots]
 
@@ -29,9 +29,9 @@ class Generator(BaseGenerator):
                 v = zero_vector(QQ,n)
                 v[j] = 1
                 for i,p in enumerate(pivots):
-                    v[p] = R[i,j]
+                    v[p] = RREF[i,j]
                 sign_slip_basis.append(v)
-            rref_basis = [R.column(j) for j in pivots]
+            rref_basis = [RREF.column(j) for j in pivots]
 
             # arithmetic slips: the correct bases with every entry offset by +-1
             def perturb(basis):
@@ -39,21 +39,21 @@ class Generator(BaseGenerator):
             kernel_offset_basis = perturb(kernel_basis)
             image_offset_basis = perturb(image_basis)
 
-            items = [latex(TBIL.VectorSet(b)) for b in
+            K, I, S, R, Kpm, Ipm = [latex(TBIL.VectorSet(b)) for b in
                 [kernel_basis, image_basis, sign_slip_basis, rref_basis,
                  kernel_offset_basis, image_offset_basis]]
-            if len(set(items)) == len(items):
+            if len(set([K, I, S, R, Kpm, Ipm])) == 6:
                 break
 
-        # AT3a and AT3b share this generator (and thus these choices),
-        # differing only in which item is correct
-        order = list(range(len(items)))
-        shuffle(order)
-        def choices(correct):
-            return [
-                {"item": items[k], "correct": k == correct, "letter": chr(ord('a')+i)}
-                for i,k in enumerate(order)
-            ]
+        # (kernel, image) pairs: correct, kernel and image swapped, both
+        # procedural errors, both arithmetic slips, and one part wrong
+        pairs = [(K,I), (I,K), (S,R), (Kpm,Ipm), (K,R), (S,I)]
+        choices = CheckIt.choices_from_list(
+            [{"kernel": k, "image": i} for k,i in pairs]
+        )
+        # flatten each item into its choice for simpler templating
+        for c in choices:
+            c.update(c.pop("item"))
 
         xs = column_matrix(vector([var("x_"+str(i+1)) for i in range(n)]))
 
@@ -62,6 +62,5 @@ class Generator(BaseGenerator):
             "m": m,
             "varvector": xs,
             "varmap": A*xs,
-            "kernel_choices": choices(0),
-            "image_choices": choices(1),
+            "choices": choices,
         }

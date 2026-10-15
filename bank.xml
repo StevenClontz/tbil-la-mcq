@@ -197,15 +197,6 @@
                 and verify that the rank-nullity theorem holds for a given linear map.
             </description>
         </outcome>
-        <outcome>
-            <title>Image and kernel (C)</title>
-            <path>outcomes/AT/AT3c</path>
-            <slug>AT3c</slug>
-            <description>
-                Compute a basis for the kernel and a basis for the image of a linear map,
-                and verify that the rank-nullity theorem holds for a given linear map.
-            </description>
-        </outcome>
         <!-- <outcome>
             <title>Injectivity and surjectivity</title>
             <path>outcomes/AT/AT4</path>
