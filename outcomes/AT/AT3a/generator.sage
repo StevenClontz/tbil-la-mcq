@@ -33,14 +33,21 @@ class Generator(BaseGenerator):
                 sign_slip_basis.append(v)
             rref_basis = [R.column(j) for j in pivots]
 
+            # arithmetic slips: the correct bases with every entry offset by +-1
+            def perturb(basis):
+                return [vector(QQ,[x+choice([-1,1]) for x in v]) for v in basis]
+            kernel_offset_basis = perturb(kernel_basis)
+            image_offset_basis = perturb(image_basis)
+
             items = [latex(TBIL.VectorSet(b)) for b in
-                [kernel_basis, image_basis, sign_slip_basis, rref_basis]]
-            if len(set(items)) == 4:
+                [kernel_basis, image_basis, sign_slip_basis, rref_basis,
+                 kernel_offset_basis, image_offset_basis]]
+            if len(set(items)) == len(items):
                 break
 
         # AT3a and AT3b share this generator (and thus these choices),
         # differing only in which item is correct
-        order = list(range(4))
+        order = list(range(len(items)))
         shuffle(order)
         def choices(correct):
             return [
