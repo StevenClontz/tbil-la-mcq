@@ -6,19 +6,17 @@ Let <m>T:\mathbb R^{{n}}\to\mathbb R^{{m}}</m> be the linear transformation give
 <me>T\left({{varvector}}\right)={{varmap}}.</me>
 One of the following sets is a basis for the kernel of <m>T</m>,
 and the other is a basis for the image of <m>T</m>.
-<me>S_1={{S1}}\hspace{2em}S_2={{S2}}</me>
+<me>A={{S1}}\hspace{2em}B={{S2}}</me>
         </p>
         <p>
-Which of the following correctly identifies these bases and verifies
+Which of the following correctly verifies
 the rank-nullity theorem for <m>T</m>?
         </p>
     </content>
     <!-- {{#choices}} -->
     <outtro{{^correct}} distractor="true"{{/correct}}>
         <p>
-<m>{{ker}}</m> is a basis for <m>\operatorname{Ker} T</m> and
-<m>{{im}}</m> is a basis for <m>\operatorname{Im} T</m>,
-so <m>\operatorname{rank} T={{rank}}</m> and
+<m>\operatorname{rank} T={{rank}}</m> and
 <m>\operatorname{nullity} T={{nullity}}</m>. Thus
 <m>\operatorname{rank} T+\operatorname{nullity} T={{rank}}+{{nullity}}={{n}}{{#equal}}={{/equal}}{{^equal}}\neq {{m}}={{/equal}}\dim\left(\mathbb R^{ {{dim}} }\right)</m>.
         </p>

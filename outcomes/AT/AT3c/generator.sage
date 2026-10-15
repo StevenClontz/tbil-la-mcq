@@ -18,10 +18,10 @@ class Generator(BaseGenerator):
         image_basis = TBIL.VectorSet([A.column(j) for j in A.pivots()])
         if choice([True,False]):
             S1, S2 = kernel_basis, image_basis
-            ker, im = "S_1", "S_2"
+            ker, im = "A", "B"
         else:
             S1, S2 = image_basis, kernel_basis
-            ker, im = "S_2", "S_1"
+            ker, im = "B", "A"
 
         # conceptual errors: mixing up the kernel and image, and comparing
         # rank+nullity with the dimension of the codomain rather than the domain
