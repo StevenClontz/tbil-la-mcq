@@ -197,15 +197,23 @@
                 and verify that the rank-nullity theorem holds for a given linear map.
             </description>
         </outcome>
-        <!-- <outcome>
-            <title>Injectivity and surjectivity</title>
-            <path>outcomes/AT/AT4</path>
-            <slug>AT4</slug>
+        <outcome>
+            <title>Injectivity and surjectivity (A)</title>
+            <path>outcomes/AT/AT4a</path>
+            <slug>AT4a</slug>
             <description>
                 Determine if a given linear map is injective and/or surjective.
             </description>
         </outcome>
         <outcome>
+            <title>Injectivity and surjectivity (B)</title>
+            <path>outcomes/AT/AT4b</path>
+            <slug>AT4b</slug>
+            <description>
+                Determine if a given linear map is injective and/or surjective.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>Vector spaces</title>
             <path>outcomes/AT/AT5</path>
             <slug>AT5</slug>

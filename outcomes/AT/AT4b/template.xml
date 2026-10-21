@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Let <m>S:\mathbb R^4\to\mathbb R^4</m> and
+<m>T:\mathbb R^4\to\mathbb R^4</m> be the linear transformations
+given by the following standard matrices.
+<me>S: {{matrixS}}\hspace{2em}T: {{matrixT}}</me>
+        </p>
+        <p>
+Which of the following correctly describes <m>S</m> and <m>T</m>?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<m>S</m> is {{S}}, and <m>T</m> is {{T}}.
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>
