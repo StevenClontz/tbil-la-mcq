@@ -221,16 +221,24 @@
                 Explain why a given set with defined addition and scalar multiplication
                 does satisfy a given vector space property, but nonetheless isn't a vector space.
             </description>
-        </outcome>
+        </outcome> -->
         <outcome>
-            <title>Polynomial and matrix spaces</title>
-            <path>outcomes/AT/AT6</path>
-            <slug>AT6</slug>
+            <title>Polynomial and matrix spaces (A)</title>
+            <path>outcomes/AT/AT6a</path>
+            <slug>AT6a</slug>
             <description>
                 Answer questions about vector spaces of polynomials or matrices.
             </description>
         </outcome>
         <outcome>
+            <title>Polynomial and matrix spaces (B)</title>
+            <path>outcomes/AT/AT6b</path>
+            <slug>AT6b</slug>
+            <description>
+                Answer questions about vector spaces of polynomials or matrices.
+            </description>
+        </outcome>
+        <!-- <outcome>
             <title>READINESS: Matrices</title>
             <path>outcomes/MX/MX-ready</path>
             <slug>MX-ready</slug>
