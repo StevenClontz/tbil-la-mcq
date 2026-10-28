@@ -27,16 +27,16 @@ class Generator(BaseGenerator):
             w = sum(coeffs[i]*A.column(p) for i,p in enumerate(pivots))
 
             # conceptual error: applying the coefficients to the first set
-            # vectors rather than the pivot columns (or a sign slip on one
-            # coefficient when these coincide)
+            # vectors rather than the pivot columns (or swapping a pivot
+            # column for a non-pivot column when these coincide)
             first = list(range(number_of_pivots))
             if pivots != first:
-                misapplied = (coeffs, first)
+                incorrect_set = first
             else:
-                one_negated = list(coeffs)
-                i = randrange(number_of_pivots)
-                one_negated[i] = -one_negated[i]
-                misapplied = (one_negated, pivots)
+                non_pivots = [j for j in range(4) if j not in pivots]
+                incorrect_set = list(pivots)
+                incorrect_set[randrange(number_of_pivots)] = choice(non_pivots)
+                incorrect_set.sort()
             # arithmetic slip: one coefficient off by one, kept nonzero
             off_by_one = list(coeffs)
             i = randrange(number_of_pivots)
@@ -44,15 +44,12 @@ class Generator(BaseGenerator):
             if off_by_one[i] == 0:
                 off_by_one[i] = 2*coeffs[i]
 
-            # (coefficients, columns) pairs: correct, all signs flipped,
-            # coefficients reversed, misapplied, and arithmetic slip
-            pairs = [
-                (coeffs, pivots),
-                ([-a for a in coeffs], pivots),
-                (coeffs[::-1], pivots),
-                misapplied,
-                (off_by_one, pivots),
-            ]
+            # (coefficients, columns) pairs: the correct coefficients, all
+            # signs flipped, and the arithmetic slip, each applied to both
+            # the correct set and the incorrect set
+            coefficient_lists = [coeffs, [-a for a in coeffs], off_by_one]
+            pairs = [(cs, pivots) for cs in coefficient_lists] + \
+                [(cs, incorrect_set) for cs in coefficient_lists]
             combos = [
                 latex(TBIL.LinearCombination(
                     cs,
