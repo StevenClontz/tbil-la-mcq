@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Let <m>A</m> be a <m>{{sizeA}}</m> matrix,
+<m>B</m> be a <m>{{sizeB}}</m> matrix, and
+<m>C</m> be a <m>{{sizeC}}</m> matrix.
+        </p>
+        <p>
+Which of the following matrix products is defined?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<m>{{product}}</m>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>

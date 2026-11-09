@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Of the following three matrices, only two may be multiplied.
+<me>A={{A}}\hspace{1em}B={{B}}\hspace{1em}C={{C}}</me>
+        </p>
+        <p>
+Which of the following is the product of these two matrices?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<me>{{product}}</me>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>
