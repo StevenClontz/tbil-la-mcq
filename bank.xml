@@ -237,7 +237,7 @@
             <description>
                 Be prepared to engage with MX learning outcomes.
             </description>
-        </outcome> -->
+        </outcome>
         <outcome>
             <title>Multiplying matrices (A)</title>
             <path>outcomes/MX/MX1a</path>
@@ -261,17 +261,35 @@
             <description>
                 Multiply matrices.
             </description>
-        </outcome> <!--
+        </outcome>  -->
         <outcome>
-            <title>The inverse of a matrix</title>
-            <path>outcomes/MX/MX2</path>
-            <slug>MX2</slug>
+            <title>The inverse of a matrix (A)</title>
+            <path>outcomes/MX/MX2a</path>
+            <slug>MX2a</slug>
             <description>
                 Determine if a matrix is invertible, and if so, compute its inverse
                 and use it to solve an appropriate system of equations.
             </description>
         </outcome>
         <outcome>
+            <title>The inverse of a matrix (B)</title>
+            <path>outcomes/MX/MX2b</path>
+            <slug>MX2b</slug>
+            <description>
+                Determine if a matrix is invertible, and if so, compute its inverse
+                and use it to solve an appropriate system of equations.
+            </description>
+        </outcome>
+        <outcome>
+            <title>The inverse of a matrix (C)</title>
+            <path>outcomes/MX/MX2c</path>
+            <slug>MX2c</slug>
+            <description>
+                Determine if a matrix is invertible, and if so, compute its inverse
+                and use it to solve an appropriate system of equations.
+            </description>
+        </outcome>
+        <!--<outcome>
             <title>Change of basis</title>
             <path>outcomes/MX/MX3</path>
             <slug>MX3</slug>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Consider the following invertible matrix.
+<me>A={{A}}</me>
+        </p>
+        <p>
+Which of the following vector equations should be solved to find
+the {{ordinal}} column of <m>A^{-1}</m>?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<me>{{equation}}</me>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>

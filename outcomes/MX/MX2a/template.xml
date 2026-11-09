@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Of the following two matrices, only one is invertible.
+<me>A={{A}}\hspace{2em}B={{B}}</me>
+        </p>
+        <p>
+Which of the following is the inverse of this invertible matrix?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<me>{{inverse}}</me>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>
