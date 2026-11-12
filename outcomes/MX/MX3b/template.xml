@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Let <m>\vec{v}= {{v}}</m> and <m>\mathcal B=\{\vec b_1,\vec b_2,\vec b_3\}</m>
+where <m>\vec b_1 = {{b_1}}</m>, <m>\vec b_2= {{b_2}}</m>,
+and <m>\vec b_3 = {{b_3}}</m>.
+        </p>
+        <p>
+When <m>\vec v</m> is written as a linear combination
+<m>\vec v=c_1\vec b_1+c_2\vec b_2+c_3\vec b_3</m>
+of the <m>\mathcal{B}</m>-basis vectors, what is <m>c_{{i}}</m>,
+the coefficient of <m>\vec b_{{i}}</m>?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<m>c_{{i}}={{value}}</m>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>
