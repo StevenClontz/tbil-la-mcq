@@ -3,54 +3,65 @@ TBIL.config_matrix_typesetting()
 
 class Generator(BaseGenerator):
     def data(self):
-        tasks = []
-        rows=sample(range(3),3)
-        names = sample(["B","C","M","N","P","Q"],3)
+        def factor():
+            return randrange(2,6)*choice([-1,1])
 
-        tasks.append({
-            "permutation": True,
-            "row_op": TBIL.RowOp("permutation",rows[0]+1, rows[1]+1),
-            "mat": identity_matrix(3).with_swapped_rows(rows[0],rows[1]),
-            "name": names[0]
-        })
-        
-        scale = randrange(2,6)*choice([-1,1])
-        tasks.append({
-            "elementary": True,
-            "row_op": TBIL.RowOp("elementary",rows[1]+1,rows[2]+1,scale),
-            "mat": identity_matrix(3).with_added_multiple_of_row(rows[1],rows[2],scale),
-            "name": names[1]
-        })
+        # regenerate until only the correct product gives the result
+        while True:
+            rows = sample(range(3),3)
+            # two different factors, so swapping them changes the matrices
+            k_replace = factor()
+            k_scale = factor()
+            if k_replace == k_scale:
+                continue
 
-        scale = randrange(2,6)*choice([-1,1])
-        tasks.append({
-            "diagonal": True,
-            "row_op": TBIL.RowOp("diagonal",rows[0]+1,rows[0]+1,scale),
-            "mat": identity_matrix(3).with_rescaled_row(rows[0],scale),
-            "name": names[2]
-        })
+            def ops(k_rep, k_sc):
+                # (row operation, elementary matrix) for a swap, a row
+                # replacement, and a scaling
+                return [
+                    (TBIL.RowOp("permutation",rows[0]+1,rows[1]+1),
+                        identity_matrix(3).with_swapped_rows(rows[0],rows[1])),
+                    (TBIL.RowOp("elementary",rows[1]+1,rows[2]+1,k_rep),
+                        identity_matrix(3).with_added_multiple_of_row(rows[1],rows[2],k_rep)),
+                    (TBIL.RowOp("diagonal",rows[0]+1,rows[0]+1,k_sc),
+                        identity_matrix(3).with_rescaled_row(rows[0],k_sc)),
+                ]
+            # order in which the operations are applied
+            order = sample(range(3),3)
+            correct_ops = [ops(k_replace,k_scale)[i] for i in order]
+            # wrong matrices: the replacement uses the scaling factor and
+            # the scaling uses the replacement factor
+            swapped_ops = [ops(k_scale,k_replace)[i] for i in order]
+            E = [M for _,M in correct_ops]
+            F = [M for _,M in swapped_ops]
 
-        shuffle(tasks)
+            A = TBIL.simple_random_matrix_of_rank(3,rows=3,columns=3)
 
-        tasks_reordered = sample(tasks,3)
+            # lists of matrices multiplied left-to-right, then by A: correct
+            # (last operation leftmost), wrong order, and the same two with
+            # the factors swapped
+            products = [
+                [E[2],E[1],E[0]],
+                [E[0],E[1],E[2]],
+                [F[2],F[1],F[0]],
+                [F[0],F[1],F[2]],
+            ]
+            values = [prod(Ms)*A for Ms in products]
+            if all(val != values[0] for val in values[1:]):
+                break
 
-        matrix_product = tasks_reordered[2]["mat"] * \
-            tasks_reordered[1]["mat"] * \
-            tasks_reordered[0]["mat"]
-
-        A = TBIL.simple_random_matrix_of_rank(2,rows=3,columns=3)
-
+        choices = CheckIt.choices_from_list([
+            {"product": LatexExpr("".join(latex(M) for M in Ms)+latex(A))}
+            for Ms in products
+        ])
+        # flatten each item into its choice for simpler templating
+        for c in choices:
+            c.update(c.pop("item"))
 
         return {
-            "tasks": tasks,
-            "first_op": tasks_reordered[0]["row_op"],
-            "second_op": tasks_reordered[1]["row_op"],
-            "third_op": tasks_reordered[2]["row_op"],
-            "matrices": 
-                tasks_reordered[2]["name"] +
-                tasks_reordered[1]["name"] +
-                tasks_reordered[0]["name"],
-            "matrix_product": matrix_product,
             "A": A,
-            "manip_A": matrix_product*A,
+            "first_op": correct_ops[0][0],
+            "second_op": correct_ops[1][0],
+            "third_op": correct_ops[2][0],
+            "choices": choices,
         }

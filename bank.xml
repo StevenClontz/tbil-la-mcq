@@ -288,7 +288,7 @@
                 Determine if a matrix is invertible, and if so, compute its inverse
                 and use it to solve an appropriate system of equations.
             </description>
-        </outcome>  -->
+        </outcome>
         <outcome>
             <title>Change of basis (A)</title>
             <path>outcomes/MX/MX3a</path>
@@ -306,8 +306,8 @@
                 Calculate the change-of-basis matrix for the standard basis to a
                 non-standard basis of R^n.
             </description>
-        </outcome>
-        <!--<outcome>
+        </outcome>  -->
+        <outcome>
             <title>Row operations as matrix multiplication</title>
             <path>outcomes/MX/MX4</path>
             <slug>MX4</slug>
@@ -315,7 +315,7 @@
                 Express row operations through matrix multiplication.
             </description>
         </outcome>
-        <outcome>
+        <!--<outcome>
             <title>READINESS: Geometric Properties of Linear Maps</title>
             <path>outcomes/GT/GT-ready</path>
             <slug>GT-ready</slug>
