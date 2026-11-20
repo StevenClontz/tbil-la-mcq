@@ -356,10 +356,19 @@
                 of a 3x3 matrix.
             </description>
         </outcome>
+        <outcome>
+            <title>Eigenvectors (A)</title>
+            <path>outcomes/GT/GT4a</path>
+            <slug>GT4a</slug>
+            <description>
+                Find a basis for the eigenspace of a 4x4 matrix associated
+                with a given eigenvalue.
+            </description>
+        </outcome>
         <!--<outcome>
-            <title>Eigenvectors</title>
-            <path>outcomes/GT/GT4</path>
-            <slug>GT4</slug>
+            <title>Eigenvectors (B)</title>
+            <path>outcomes/GT/GT4b</path>
+            <slug>GT4b</slug>
             <description>
                 Find a basis for the eigenspace of a 4x4 matrix associated
                 with a given eigenvalue.

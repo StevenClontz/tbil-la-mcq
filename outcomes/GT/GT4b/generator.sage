@@ -1,3 +1,4 @@
+# TODO: refactor GT4b into a multiple choice question
 load("outcomes/tbil/library.sage")
 TBIL.config_matrix_typesetting()
 
