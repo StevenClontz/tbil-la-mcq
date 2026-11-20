@@ -306,7 +306,7 @@
                 Calculate the change-of-basis matrix for the standard basis to a
                 non-standard basis of R^n.
             </description>
-        </outcome>  -->
+        </outcome>
         <outcome>
             <title>Row operations as matrix multiplication</title>
             <path>outcomes/MX/MX4</path>
@@ -315,14 +315,14 @@
                 Express row operations through matrix multiplication.
             </description>
         </outcome>
-        <!--<outcome>
+        <outcome>
             <title>READINESS: Geometric Properties of Linear Maps</title>
             <path>outcomes/GT/GT-ready</path>
             <slug>GT-ready</slug>
             <description>
                 Be prepared to engage with GT learning outcomes.
             </description>
-        </outcome>
+        </outcome> -->
         <outcome>
             <title>Row operations and determinants</title>
             <path>outcomes/GT/GT1</path>
@@ -331,7 +331,7 @@
                 Describe how a row operation affects the determinant of a matrix.
             </description>
         </outcome>
-        <outcome>
+        <!--<outcome>
             <title>Determinants</title>
             <path>outcomes/GT/GT2</path>
             <slug>GT2</slug>

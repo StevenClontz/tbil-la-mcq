@@ -1,24 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
-    <intro>
+    <content>
         <p>
 Let <m>A</m> be <em>any</em> <m>4 \times 4</m> matrix with determinant
 <m>{{determinant}}</m>.
+Let <m>B</m> be the matrix obtained from <m>A</m> by applying
+the row operation <m>{{first_op}}</m>, then <m>{{second_op}}</m>,
+then <m>{{third_op}}</m>, and finally <m>{{fourth_op}}</m>.
+What is <m>\mathrm{det}\,B</m>?
         </p>
-    </intro>
-    <!-- {{#tasks}} -->
-    <knowl>
-        <content>
-            <p>
-Let <m>{{name}}</m> be the matrix obtained from <m>A</m> by
-applying the row operation <m>{{row_op}}</m>.
-Explain and demonstrate how to find <m>\mathrm{det}\,{{name}}</m>
-without knowing the terms of <m>A</m>.
-            </p>
-        </content>
-        <outtro>
-            <p><m>\mathrm{det}\,{{name}}={{det}}</m></p>
-        </outtro>
-    </knowl>
-    <!-- {{/tasks}} -->
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<m>{{value}}</m>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
 </knowl>
