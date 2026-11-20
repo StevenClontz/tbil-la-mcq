@@ -338,16 +338,25 @@
             <description>
                 Compute the determinant of a 4x4 matrix.
             </description>
-        </outcome>
+        </outcome> -->
         <outcome>
-            <title>Eigenvalues</title>
-            <path>outcomes/GT/GT3</path>
-            <slug>GT3</slug>
+            <title>Eigenvalues (A)</title>
+            <path>outcomes/GT/GT3a</path>
+            <slug>GT3a</slug>
             <description>
                 Find the eigenvalues of a 2x2 matrix.
             </description>
         </outcome>
         <outcome>
+            <title>Eigenvalues (B)</title>
+            <path>outcomes/GT/GT3b</path>
+            <slug>GT3b</slug>
+            <description>
+                Identify the eigenvalue associated with a given eigenvector
+                of a 3x3 matrix.
+            </description>
+        </outcome>
+        <!--<outcome>
             <title>Eigenvectors</title>
             <path>outcomes/GT/GT4</path>
             <slug>GT4</slug>

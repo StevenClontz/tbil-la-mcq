@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Which of the following is an eigenvalue of the matrix <m>{{matrix}}</m>?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<m>{{value}}</m>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>

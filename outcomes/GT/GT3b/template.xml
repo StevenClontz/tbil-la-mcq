@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<knowl mode="exercise" xmlns="https://spatext.clontz.org" version="0.2">
+    <content>
+        <p>
+Let <m>A={{matrix}}</m>.
+The vector <m>{{eigenvector}}</m> is an eigenvector of <m>A</m>.
+Which of the following is its associated eigenvalue?
+        </p>
+    </content>
+    <!-- {{#choices}} -->
+    <outtro{{^correct}} distractor="true"{{/correct}}>
+        <p>
+<m>{{value}}</m>
+        </p>
+    </outtro>
+    <!-- {{/choices}} -->
+</knowl>
